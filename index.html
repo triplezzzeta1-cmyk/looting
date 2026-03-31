@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Assessment Test Page</title>
+    <script src="Hook.js"></script>
+</head>
+<body>
+    <h1>Testing Cloudflare Hook...</h1>
+    <p>If the script is working, a POST request was just sent to your API.</p>
+    
+    <script>
+        // Let's set a fake cookie for testing
+        document.cookie = "test_session_id=SECRET_12345; path=/";
+        console.log("Fake cookie set. Check your Discord!");
+    </script>
+</body>
+</html>
